@@ -106,7 +106,7 @@ class App extends Component {
           focusCountry={this.state.focusCountry}
         />
         <div class="notification is-warning">
-          Ces données sont généralement mises à jour aux alentours de 22H00 proviennent de l'API : <strong>"https://coronavirus-19-api.herokuapp.com/countries"</strong>
+          Ces données sont généralement mises à jour aux alentours de 22H00 et proviennent de l'API : <strong>"https://coronavirus-19-api.herokuapp.com/countries"</strong>
         </div>
       </Container>
     )

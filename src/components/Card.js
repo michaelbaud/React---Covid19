@@ -13,7 +13,7 @@ const Card = (props) => {
 
     const renderGlobalStats = (
         <ul>
-            <li><TiMediaPlay className="listIcon" /> <span className="nb">{props.globalStats.cases}</span> cas</li>
+            <li><TiMediaPlay className="listIcon" /> <span className="nb">{props.globalStats.cases}</span> cas déclarés</li>
             <li><TiMediaPlay className="listIcon" /> <span className="nb">{props.globalStats.deaths}</span> morts</li>
             <li><TiMediaPlay className="listIcon" /> <span className="nb">{props.globalStats.recovered}</span> guéris</li>
         </ul>
