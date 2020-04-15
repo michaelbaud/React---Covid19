@@ -47,7 +47,7 @@ const App = () => {
 
   const getCountryStats = async (country) => {
     try {
-      let response = await fetch(`https://coronavirus-19-api.herokuapp.com/countries/${country}`)
+      let response = await fetch(`https://corona.lmao.ninja/countries/${country}`)
       let data = await response.json()
       setFocusStats(data)
     } catch (err) {

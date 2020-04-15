@@ -16,6 +16,7 @@ const FocusStats = ({ focusStats }) => {
 
     const renderFocusStats = (
         <div className="card">
+            <img className="imgFlag" src={focusStats.countryInfo.flag} alt="Drapeau" />
             <ul>
                 <li><TiMediaPlay className="listIcon" /> <span className="nb">{formatFocuslData.cases}</span> cas déclarés</li>
                 <li><TiMediaPlay className="listIcon" /> <span className="nb">{formatFocuslData.todayCases}</span> cas déclarés aujourd'hui</li>
