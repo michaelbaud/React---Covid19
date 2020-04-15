@@ -19,9 +19,9 @@ const FocusStats = ({ focusStats }) => {
             <ul>
                 <li><TiMediaPlay className="listIcon" /> <span className="nb">{formatFocuslData.cases}</span> cas déclarés</li>
                 <li><TiMediaPlay className="listIcon" /> <span className="nb">{formatFocuslData.todayCases}</span> cas déclarés aujourd'hui</li>
-                <li><TiMediaPlay className="listIcon" /> <span className="nb">{formatFocuslData.deaths}</span> morts</li>
-                <li><TiMediaPlay className="listIcon" /> <span className="nb">{formatFocuslData.todayDeaths}</span> morts aujourd'hui</li>
-                <li><TiMediaPlay className="listIcon" /> <span className="nb">{formatFocuslData.recovered}</span> guéris</li>
+                <li><TiMediaPlay className="listIcon" /> <span className="nb">{formatFocuslData.deaths}</span> décès</li>
+                <li><TiMediaPlay className="listIcon" /> <span className="nb">{formatFocuslData.todayDeaths}</span> décès aujourd'hui</li>
+                <li><TiMediaPlay className="listIcon" /> <span className="nb">{formatFocuslData.recovered}</span> cas guéris</li>
                 <li><TiMediaPlay className="listIcon" /> <span className="nb">{formatFocuslData.critical}</span> cas critiques</li>
             </ul>
         </div>

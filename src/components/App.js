@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import ReactGa from 'react-ga'
 
 // CSS
 import 'bulma/css/bulma.css'
@@ -23,6 +24,11 @@ const App = () => {
   const [focusStats, setFocusStats] = useState({})
   const [errorStatus, setErrorStatus] = useState(false)
   const [focusCountry, setFocusCountry] = useState("Monde")
+
+  useEffect(() => {
+    ReactGa.initialize('UA-163719407-1')
+    ReactGa.pageview('/')
+  }, [])
 
   useEffect(() => {
     getGlobalStats()

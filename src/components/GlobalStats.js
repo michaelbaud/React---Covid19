@@ -19,9 +19,9 @@ const GlobalStats = ({ globalStats }) => {
             <ul>
                 <li><TiMediaPlay className="listIcon" /> <span className="nb">{formatGlobalData.cases}</span> cas déclarés</li>
                 <li><TiMediaPlay className="listIcon" /> <span className="nb">{formatGlobalData.todayCases}</span> cas déclarés aujourd'hui</li>
-                <li><TiMediaPlay className="listIcon" /> <span className="nb">{formatGlobalData.deaths}</span> morts</li>
-                <li><TiMediaPlay className="listIcon" /> <span className="nb">{formatGlobalData.todayDeaths}</span> morts aujourd'hui</li>
-                <li><TiMediaPlay className="listIcon" /> <span className="nb">{formatGlobalData.recovered}</span> guéris</li>
+                <li><TiMediaPlay className="listIcon" /> <span className="nb">{formatGlobalData.deaths}</span> décès</li>
+                <li><TiMediaPlay className="listIcon" /> <span className="nb">{formatGlobalData.todayDeaths}</span> décès aujourd'hui</li>
+                <li><TiMediaPlay className="listIcon" /> <span className="nb">{formatGlobalData.recovered}</span> cas guéris</li>
                 <li><TiMediaPlay className="listIcon" /> <span className="nb">{formatGlobalData.critical}</span> cas critiques</li>
             </ul>
         </div>
