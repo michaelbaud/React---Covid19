@@ -5,7 +5,7 @@ import translate from '../helpers/translate'
 
 const Select = ({ handleChange, setErrorStatus }) => {
 
-    const [countriesArray, setCountriesArray] = useState(["Monde"])
+    const [countriesArray, setCountriesArray] = useState([])
 
     const getCountriesArray = async () => {
         try {
@@ -19,7 +19,11 @@ const Select = ({ handleChange, setErrorStatus }) => {
                     console.error('Ce pays n\'est pas inclus dans traduction:', item.country)
                     newCountriesArray.push(item.country)
                 }
+                newCountriesArray.sort((a, b) => {
+                    return a.localeCompare(b)
+                })
             })
+            newCountriesArray.unshift('Monde')
             setCountriesArray(newCountriesArray)
         } catch (err) {
             console.error('getCountriesArray', err, err.stack)
