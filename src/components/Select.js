@@ -9,7 +9,7 @@ const Select = ({ handleChange, setErrorStatus }) => {
 
     const getCountriesArray = async () => {
         try {
-            let response = await fetch("https://corona.lmao.ninja/countries/")
+            let response = await fetch("https://corona.lmao.ninja/v2/countries/")
             const newCountriesArray = [...countriesArray]
             const data = await response.json()
             await data.forEach(item => {

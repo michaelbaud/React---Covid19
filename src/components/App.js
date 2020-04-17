@@ -13,6 +13,7 @@ import GlobalStats from './GlobalStats'
 import FocusStats from './FocusStats'
 import NotifErrorStatus from './NotifErrorStatus'
 import NotifUpdated from './NotifUpdated'
+// import Ranking from './Ranking'
 import Footer from './Footer'
 
 // Helpers
@@ -36,7 +37,7 @@ const App = () => {
 
   const getGlobalStats = async () => {
     try {
-      let response = await fetch("https://corona.lmao.ninja/all/")
+      let response = await fetch("https://corona.lmao.ninja/v2/all/")
       const data = await response.json()
       setGlobalStats(data)
     } catch (err) {
@@ -47,7 +48,7 @@ const App = () => {
 
   const getCountryStats = async (country) => {
     try {
-      let response = await fetch(`https://corona.lmao.ninja/countries/${country}`)
+      let response = await fetch(`https://corona.lmao.ninja/v2/countries/${country}`)
       let data = await response.json()
       setFocusStats(data)
     } catch (err) {
@@ -79,6 +80,7 @@ const App = () => {
       {focusStats.cases && focusCountry !== "Monde" && <FocusStats focusStats={focusStats} />}
       <NotifErrorStatus errorStatus={errorStatus} />
       <NotifUpdated />
+      {/* <Ranking /> */}
       <Footer />
     </Container >
   )

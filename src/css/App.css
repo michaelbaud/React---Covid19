@@ -103,7 +103,7 @@ a {
   border-radius: 10px;
 }
 
-/* ImgGlag */
+/* ImgFlag */
 .imgFlag {
   border: 1px solid #b1afaf;
   margin-bottom: 25px;
@@ -126,6 +126,19 @@ a {
   position: relative;
   margin-bottom: -6px;
   margin-right: 5px;
+}
+
+.rankingsContainer {
+  margin-top: 40px;
+}
+.rankingsContainer ul {
+  margin-top: 30px;
+}
+.rankingsContainer li {
+  line-height: 0.5rem;
+}
+.rankingsContainer button {
+  font-weight: bold;
 }
 
 /*---------------------*\
