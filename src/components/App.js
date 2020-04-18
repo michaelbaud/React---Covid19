@@ -13,7 +13,7 @@ import GlobalStats from './GlobalStats'
 import FocusStats from './FocusStats'
 import NotifErrorStatus from './NotifErrorStatus'
 import NotifUpdated from './NotifUpdated'
-// import Ranking from './Ranking'
+import Ranking from './Ranking'
 import Footer from './Footer'
 
 // Helpers
@@ -80,7 +80,7 @@ const App = () => {
       {focusStats.cases && focusCountry !== "Monde" && <FocusStats focusStats={focusStats} />}
       <NotifErrorStatus errorStatus={errorStatus} />
       <NotifUpdated />
-      {/* <Ranking /> */}
+      <Ranking />
       <Footer />
     </Container >
   )

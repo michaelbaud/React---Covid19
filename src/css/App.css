@@ -42,6 +42,7 @@ a {
   color: #fff;
   font-weight: bold;
 }
+
 /*---------------------*\
         CSS CLASS   
 \*---------------------*/
@@ -73,6 +74,7 @@ a {
 }
 .select {
   margin-top: 40px;
+  
 }
 
 /* List point */
@@ -116,7 +118,6 @@ a {
   background-color: var(--darkGrey-color);
   overflow: auto;
   color: #fff;
-  background-color: ;
   line-height: 2.3rem;
   border-radius: 10px 10px 0 0;
   padding: 2rem 1.5rem 3rem;
@@ -131,15 +132,43 @@ a {
 .rankingsContainer {
   margin-top: 40px;
 }
-.rankingsContainer ul {
-  margin-top: 30px;
-}
 .rankingsContainer li {
   line-height: 0.5rem;
 }
 .rankingsContainer button {
   font-weight: bold;
 }
+
+button {
+  padding: 0.5rem 0.8rem;
+  border-radius: 100px;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  background-color: var(--second-bg-color);
+  font-weight: bold;
+  box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+}
+
+
+.buttonFocused {
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  background-color: var(--primary-color);
+  color: #fff;
+  box-shadow: none;
+}
+
+.ulSorted {
+  background-color: var(--second-bg-color);
+  display: inline-block;
+  border-radius: 15px;
+  padding: 15px 10px 0 10px;
+  box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+  margin-top: 20px;;
+}
+
+
+
 
 /*---------------------*\
       MEDIA-QUERIES   

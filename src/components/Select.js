@@ -33,6 +33,7 @@ const Select = ({ handleChange, setErrorStatus }) => {
 
     useEffect(() => {
         getCountriesArray()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const optionItems = countriesArray.map((item, index) =>
