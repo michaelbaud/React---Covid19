@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react"
 
 // Components
 import SortedCases from './SortedCases'
+import SortedDeaths from './SortedDeaths'
+import SortedCritical from './SortedCritical'
 
 const App = () => {
     const [sortedCases, setSortedCases] = useState([])
-    const [sortedDeayhs, setSortedDeaths] = useState([])
+    const [sortedDeaths, setSortedDeaths] = useState([])
     const [sortedCritical, setSortedCritical] = useState([])
 
     useEffect(() => {
@@ -39,7 +41,6 @@ const App = () => {
             setSortedCases(newSortedCases)
             setSortedDeaths(newSortedDeaths)
             setSortedCritical(newSortedCritical)
-
         } catch (err) {
             console.error("Error fetchApi", err.stack)
         }
@@ -48,7 +49,11 @@ const App = () => {
     return (
         <div className='rankingsContainer'>
             <h2 className="title">Classements par catégories</h2>
-            <SortedCases sortedCases={sortedCases} />
+            <div className="columnsContainer">
+                <SortedCases sortedCases={sortedCases} />
+                <SortedDeaths sortedDeaths={sortedDeaths} />
+                <SortedCritical sortedCritical={sortedCritical} />
+            </div>
         </div>
     )
 }

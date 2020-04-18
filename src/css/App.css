@@ -129,6 +129,7 @@ a {
   margin-right: 5px;
 }
 
+/* Rankings Section */
 .rankingsContainer {
   margin-top: 40px;
 }
@@ -137,19 +138,15 @@ a {
 }
 .rankingsContainer button {
   font-weight: bold;
-}
-
-button {
-  padding: 0.5rem 0.8rem;
+  font-size: 1.1rem;
+  padding: 0.5rem 0;
+  width: 200px;
   border-radius: 100px;
   color: var(--primary-color);
   border: 1px solid var(--primary-color);
   background-color: var(--second-bg-color);
-  font-weight: bold;
   box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
 }
-
-
 .buttonFocused {
   color: var(--primary-color);
   border: 1px solid var(--primary-color);
@@ -157,18 +154,22 @@ button {
   color: #fff;
   box-shadow: none;
 }
-
 .ulSorted {
   background-color: var(--second-bg-color);
   display: inline-block;
   border-radius: 15px;
   padding: 15px 10px 0 10px;
   box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
-  margin-top: 20px;;
+  margin-top: 20px;
 }
-
-
-
+.columnsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.columnContainer {
+  margin-bottom: 20px;
+}
 
 /*---------------------*\
       MEDIA-QUERIES   
@@ -189,6 +190,10 @@ button {
     height: 3em;
     border-radius: 10px;
   }
+  .columnContainer {
+    width: 50%;
+
+  }
 }
 
 /* Pour tablette */
@@ -206,6 +211,9 @@ button {
     height: 2.5em;
     border-radius: 7px;
   }
+  .columnContainer {
+    width: 50%;
+  }
 }
 
 /* Pour mobile */
@@ -222,5 +230,8 @@ button {
   .imgFlag {
     height: 2rem;
     border-radius: 5px;
+  }
+  .columnContainer {
+    width: 100%;
   }
 }

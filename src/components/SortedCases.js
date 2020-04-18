@@ -34,13 +34,11 @@ const SortedCases = ({ sortedCases }) => {
     })
 
     return (
-        <div>
+        <div className="columnContainer">
             <button id="buttonCases" className="is-primary is-rounded" onClick={toggleButton} type="submit">Cas déclarés</button>
             <Expand open={openDiv} duration={600}>
                 <ul className="ulSorted">
-
                     {renderCases}
-
                 </ul>
             </Expand>
         </div >
