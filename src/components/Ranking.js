@@ -47,7 +47,7 @@ const App = () => {
 
     return (
         <div className='rankingsContainer'>
-            <h2 className="title">Classement par catégories</h2>
+            <h2 className="title">Classements par catégories</h2>
             <SortedCases sortedCases={sortedCases} />
         </div>
     )
