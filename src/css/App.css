@@ -5,13 +5,13 @@
 :root {
   --main-bg-color: #ebe8e8;
   --second-bg-color: #faf8f8;
-  --primary-color: #00D1B2;
+  --primary-color: #00d1b2;
   --darkGrey-color: #737377
 }
 
 /*---------------------*\
         GENERAL   
-\*---------------------*/ 
+\*---------------------*/
 
 * {
   margin: 0;
@@ -20,19 +20,11 @@
   box-sizing: border-box;
 }
 
-button::-moz-focus-inner {
-  border: 0;
-}
-.select::-moz-focus-inner {
-  border: 0;
-}
-
 html {
   background-color: var(--main-bg-color);
 }
 
 body {
-  overflow: hidden;
   margin: 0 10px;
 }
 
@@ -48,6 +40,25 @@ a {
   color: #fff;
   font-weight: bold;
 }
+
+/* Remove doted lines */
+button::-moz-focus-inner {
+  border: 0;
+}
+button:focus, button:active {
+  outline: transparent;
+}
+a:focus {
+  outline: transparent;
+}
+select {
+  text-align: center;
+  text-align-last: center;
+  -moz-text-align-last: center;
+}
+
+
+
 
 /*---------------------*\
         CSS CLASS   
@@ -80,7 +91,6 @@ a {
 }
 .select {
   margin-top: 40px;
-  
 }
 
 /* List point */
@@ -113,13 +123,12 @@ a {
 
 /* ImgFlag */
 .imgFlagContainer {
-  opacity: 85%;
+  opacity: 0.9!important;
 }
 .imgFlag {
   border: 1px solid #b1afaf;
   margin-bottom: 25px;
   box-sizing: content-box;
-  /* box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1); */
 }
 
 /* Rankings Section */
@@ -138,6 +147,10 @@ a {
   color: var(--primary-color);
   border: 1px solid var(--primary-color);
   background-color: var(--second-bg-color);
+  cursor: pointer;
+}
+.rankingsContainer button:hover {
+  background-color: #00d1b211;
 }
 .buttonFocused {
   color: var(--primary-color) !important;
