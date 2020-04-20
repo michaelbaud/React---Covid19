@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 // Dependencies
 import Expand from 'react-expand-animated'
 
-
 // Helpers
 import translate from '../helpers/translate'
 
