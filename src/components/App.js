@@ -13,11 +13,8 @@ import GlobalStats from './GlobalStats'
 import FocusStats from './FocusStats'
 import NotifErrorStatus from './NotifErrorStatus'
 import NotifUpdated from './NotifUpdated'
-import Ranking from './Ranking'
+import Rankings from './Rankings'
 import Footer from './Footer'
-
-// Helpers
-import translate from '../helpers/translate';
 
 const App = () => {
 
@@ -32,8 +29,8 @@ const App = () => {
   }, [])
 
   useEffect(() => {
-    getGlobalStats()
-  }, [])
+    focusCountry === "Monde" ? getGlobalStats() : getCountryStats(focusCountry)
+  }, [focusCountry])
 
   const getGlobalStats = async () => {
     try {
@@ -57,30 +54,21 @@ const App = () => {
     }
   }
 
-  const handleChange = (e) => {
-    let target = e.target.value
-    for (let [key, value] of Object.entries(translate)) {
-      if (value === target) {
-        target = key
-      }
-    }
-    setFocusCountry(target)
-    target === "Monde" ? getGlobalStats() : getCountryStats(target)
-  }
-
   return (
     < Container className="widthContainer" >
       <Title />
       <Select
         className="is-outline"
+        setFocusCountry={setFocusCountry}
+        getGlobalStats={getGlobalStats}
+        getCountryStats={getCountryStats}
         setErrorStatus={setErrorStatus}
-        handleChange={handleChange}
       />
       {globalStats.cases && focusCountry === "Monde" && <GlobalStats globalStats={globalStats} />}
       {focusStats.cases && focusCountry !== "Monde" && <FocusStats focusStats={focusStats} />}
       <NotifErrorStatus errorStatus={errorStatus} />
       <NotifUpdated />
-      <Ranking />
+      <Rankings />
       <Footer />
     </Container >
   )

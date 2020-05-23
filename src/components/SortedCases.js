@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 
 // Dependencies
 import Expand from 'react-expand-animated'
@@ -6,24 +6,24 @@ import Expand from 'react-expand-animated'
 // Helpers
 import translate from '../helpers/translate'
 
-const SortedCases = ({ sortedCases }) => {
+const SortedCases = ({ casesArray }) => {
 
     const [buttonIsFocused, setButtonIsFocused] = useState(false)
-    const [openDiv, setOpenDiv] = useState(false);
+    const [openDiv, setOpenDiv] = useState(false)
 
-    const toggleButton = () => {
-        const buttonCases = document.querySelector("#buttonCases")
-        if (!buttonIsFocused) {
-            buttonCases.classList.add("buttonFocused")
-            setButtonIsFocused(true)
+    const buttonRef = useRef(null)
+
+    useEffect(() => {
+        if (buttonIsFocused) {
+            buttonRef.current.classList.add("buttonFocused")
+            setOpenDiv(true)
         } else {
-            buttonCases.classList.remove("buttonFocused")
-            setButtonIsFocused(false)
+            buttonRef.current.classList.remove("buttonFocused")
+            setOpenDiv(false)
         }
-        setOpenDiv(prevState => !prevState)
-    }
+    }, [buttonIsFocused])
 
-    const renderCases = sortedCases.map((item, index) => {
+    const renderItemsList = casesArray.map((item, index) => {
         if (translate.hasOwnProperty(item[0])) {
             return <li key={index}>{translate[item[0]]} : <span className="nb">{item[1].toLocaleString()}</span></li>
         }
@@ -34,10 +34,17 @@ const SortedCases = ({ sortedCases }) => {
 
     return (
         <div className="columnContainer">
-            <button id="buttonCases" className="is-primary is-rounded" onClick={toggleButton} type="submit">Cas déclarés</button>
+            <button
+                id="buttonCases"
+                className="is-primary is-rounded"
+                ref={buttonRef}
+                onClick={() => setButtonIsFocused(prevState => !prevState)}
+            >
+                Cas déclarés
+            </button>
             <Expand open={openDiv} duration={600}>
                 <ul className="ulSorted">
-                    {renderCases}
+                    {renderItemsList}
                 </ul>
             </Expand>
         </div >

@@ -5,31 +5,20 @@ import { TiMediaPlay } from "react-icons/ti"
 
 const GlobalStats = ({ globalStats }) => {
 
-    const formatGlobalData = {
-        cases: globalStats.cases.toLocaleString(),
-        todayCases: globalStats.todayCases.toLocaleString(),
-        deaths: globalStats.deaths.toLocaleString(),
-        todayDeaths: globalStats.todayDeaths.toLocaleString(),
-        recovered: globalStats.recovered.toLocaleString(),
-        critical: globalStats.critical.toLocaleString()
+    const formatNumToLocalString = (num) => {
+        return num.toLocaleString()
     }
 
-    const renderGlobalStats = (
+    return (
         <div className="card">
             <ul>
-                <li><TiMediaPlay className="listIcon" /> <span className="nb">{formatGlobalData.cases}</span> cas déclarés</li>
-                <li><TiMediaPlay className="listIcon" /> <span className="nb">{formatGlobalData.todayCases}</span> cas déclarés aujourd'hui</li>
-                <li><TiMediaPlay className="listIcon" /> <span className="nb">{formatGlobalData.deaths}</span> décès</li>
-                <li><TiMediaPlay className="listIcon" /> <span className="nb">{formatGlobalData.todayDeaths}</span> décès aujourd'hui</li>
-                <li><TiMediaPlay className="listIcon" /> <span className="nb">{formatGlobalData.recovered}</span> cas guéris</li>
-                <li><TiMediaPlay className="listIcon" /> <span className="nb">{formatGlobalData.critical}</span> cas critiques</li>
+                <li><TiMediaPlay className="listIcon" /> <span className="nb">{formatNumToLocalString(globalStats.cases)}</span> cas déclarés</li>
+                <li><TiMediaPlay className="listIcon" /> <span className="nb">{formatNumToLocalString(globalStats.todayCases)}</span> cas déclarés aujourd'hui</li>
+                <li><TiMediaPlay className="listIcon" /> <span className="nb">{formatNumToLocalString(globalStats.deaths)}</span> décès</li>
+                <li><TiMediaPlay className="listIcon" /> <span className="nb">{formatNumToLocalString(globalStats.todayDeaths)}</span> décès aujourd'hui</li>
+                <li><TiMediaPlay className="listIcon" /> <span className="nb">{formatNumToLocalString(globalStats.recovered)}</span> cas guéris</li>
+                <li><TiMediaPlay className="listIcon" /> <span className="nb">{formatNumToLocalString(globalStats.critical)}</span> cas critiques</li>
             </ul>
-        </div>
-    )
-
-    return (
-        <div>
-            {renderGlobalStats}
         </div>
     )
 }

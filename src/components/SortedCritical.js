@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 
 // Dependencies
 import Expand from 'react-expand-animated'
@@ -6,24 +6,24 @@ import Expand from 'react-expand-animated'
 // Helpers
 import translate from '../helpers/translate'
 
-const SortedCritical = ({ sortedCritical }) => {
+const SortedCritical = ({ criticalArray }) => {
 
     const [buttonIsFocused, setButtonIsFocused] = useState(false)
     const [openDiv, setOpenDiv] = useState(false);
 
-    const toggleButton = () => {
-        const buttonCritical = document.querySelector("#buttonCritical")
-        if (!buttonIsFocused) {
-            buttonCritical.classList.add("buttonFocused")
-            setButtonIsFocused(true)
-        } else {
-            buttonCritical.classList.remove("buttonFocused")
-            setButtonIsFocused(false)
-        }
-        setOpenDiv(prevState => !prevState)
-    }
+    const buttonRef = useRef(null)
 
-    const renderCritical = sortedCritical.map((item, index) => {
+    useEffect(() => {
+        if (buttonIsFocused) {
+            buttonRef.current.classList.add("buttonFocused")
+            setOpenDiv(true)
+        } else {
+            buttonRef.current.classList.remove("buttonFocused")
+            setOpenDiv(false)
+        }
+    }, [buttonIsFocused])
+
+    const renderItemsList = criticalArray.map((item, index) => {
         if (translate.hasOwnProperty(item[0])) {
             return <li key={index}>{translate[item[0]]} : <span className="nb">{item[1].toLocaleString()}</span></li>
         }
@@ -34,10 +34,17 @@ const SortedCritical = ({ sortedCritical }) => {
 
     return (
         <div className="columnContainer">
-            <button id="buttonCritical" className="is-primary is-rounded" onClick={toggleButton} type="submit">Cas critiques</button>
+            <button
+                id="buttonCritical"
+                className="is-primary is-rounded"
+                ref={buttonRef}
+                onClick={() => setButtonIsFocused(prevState => !prevState)}
+            >
+                Cas critiques
+            </button>
             <Expand open={openDiv} duration={600}>
                 <ul className="ulSorted">
-                    {renderCritical}
+                    {renderItemsList}
                 </ul>
             </Expand>
         </div >
