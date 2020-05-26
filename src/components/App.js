@@ -22,6 +22,7 @@ const App = () => {
   const [focusStats, setFocusStats] = useState({})
   const [errorStatus, setErrorStatus] = useState(false)
   const [focusCountry, setFocusCountry] = useState("Monde")
+  const [windowIsFocused, setWindowIsFocused] = useState(true)
 
   useEffect(() => {
     ReactGa.initialize('UA-163719407-1')
@@ -29,8 +30,20 @@ const App = () => {
   }, [])
 
   useEffect(() => {
-    focusCountry === "Monde" ? getGlobalStats() : getCountryStats(focusCountry)
-  }, [focusCountry])
+    window.addEventListener("focus", () => {
+      setWindowIsFocused(true)
+    })
+    window.addEventListener("blur", () => {
+      setWindowIsFocused(false)
+    })
+  }, [])
+
+  useEffect(() => {
+    if (windowIsFocused) {
+      console.log('page active : ', windowIsFocused)
+      focusCountry === "Monde" ? getGlobalStats() : getCountryStats(focusCountry)
+    }
+  }, [focusCountry, windowIsFocused])
 
   const getGlobalStats = async () => {
     try {
@@ -54,6 +67,7 @@ const App = () => {
     }
   }
 
+
   return (
     < Container className="widthContainer" >
       <Title />
@@ -68,7 +82,7 @@ const App = () => {
       {focusStats.cases && focusCountry !== "Monde" && <FocusStats focusStats={focusStats} />}
       <NotifErrorStatus errorStatus={errorStatus} />
       <NotifUpdated />
-      <Rankings />
+      <Rankings windowIsFocused={windowIsFocused} />
       <Footer />
     </Container >
   )

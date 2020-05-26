@@ -5,15 +5,18 @@ import SortedCases from './SortedCases'
 import SortedDeaths from './SortedDeaths'
 import SortedCritical from './SortedCritical'
 
-const Rankings = () => {
+const Rankings = ({ windowIsFocused }) => {
 
     const [casesArray, setCasesArray] = useState([])
     const [deathsArray, setDeathsArray] = useState([])
     const [criticalArray, setCriticalArray] = useState([])
 
     useEffect(() => {
-        fetchApi()
-    }, [])
+        if (windowIsFocused) {
+            console.log('page active : ', windowIsFocused)
+            fetchApi()
+        }
+    }, [windowIsFocused])
 
     const fetchApi = async () => {
         try {
