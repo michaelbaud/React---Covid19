@@ -6,7 +6,7 @@ import Expand from 'react-expand-animated'
 // Helpers
 import translate from '../helpers/translate'
 
-const SortedCases = ({ casesArray }) => {
+const Card = ({ dataForOneCard, title }) => {
 
     const [buttonIsFocused, setButtonIsFocused] = useState(false)
     const [openDiv, setOpenDiv] = useState(false)
@@ -23,7 +23,7 @@ const SortedCases = ({ casesArray }) => {
         }
     }, [buttonIsFocused])
 
-    const renderItemsList = casesArray.map((item, index) => {
+    const renderItemsList = dataForOneCard.map((item, index) => {
         if (translate.hasOwnProperty(item[0])) {
             return <li key={index}>{translate[item[0]]} : <span className="nb">{item[1].toLocaleString()}</span></li>
         }
@@ -40,9 +40,9 @@ const SortedCases = ({ casesArray }) => {
                 ref={buttonRef}
                 onClick={() => setButtonIsFocused(prevState => !prevState)}
             >
-                Cas déclarés
+                {title}
             </button>
-            <Expand open={openDiv} duration={600}>
+            <Expand open={openDiv} duration={200}>
                 <ul className="ulSorted">
                     {renderItemsList}
                 </ul>
@@ -51,4 +51,4 @@ const SortedCases = ({ casesArray }) => {
     )
 }
 
-export default SortedCases
+export default Card

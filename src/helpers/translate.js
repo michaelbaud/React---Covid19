@@ -111,6 +111,7 @@ const translate = {
     "Lao People's Democratic Republic": "République démocratique populaire lao",
     "Latvia": "Lettonie",
     "Lebanon": "Liban",
+    "Lesotho": "Lesotho",
     "Liberia": "Libéria",
     "Libyan Arab Jamahiriya": "Jamahiriya arabe libyenne",
     "Liechtenstein": "Liechtenstein",

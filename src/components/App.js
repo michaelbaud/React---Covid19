@@ -30,17 +30,12 @@ const App = () => {
   }, [])
 
   useEffect(() => {
-    window.addEventListener("focus", () => {
-      setWindowIsFocused(true)
-    })
-    window.addEventListener("blur", () => {
-      setWindowIsFocused(false)
-    })
+    window.addEventListener("focus", () => setWindowIsFocused(true))
+    window.addEventListener("blur", () => setWindowIsFocused(false))
   }, [])
 
   useEffect(() => {
     if (windowIsFocused) {
-      console.log('page active : ', windowIsFocused)
       focusCountry === "Monde" ? getGlobalStats() : getCountryStats(focusCountry)
     }
   }, [focusCountry, windowIsFocused])
