@@ -45,6 +45,7 @@ const App = () => {
       let response = await fetch("https://corona.lmao.ninja/v2/all/")
       const data = await response.json()
       setGlobalStats(data)
+      setErrorStatus(false)
     } catch (err) {
       console.error('getGlobalStats error: ', err, err.stack)
       setErrorStatus(true)
@@ -56,6 +57,7 @@ const App = () => {
       let response = await fetch(`https://corona.lmao.ninja/v2/countries/${country}`)
       let data = await response.json()
       setFocusStats(data)
+      setErrorStatus(false)
     } catch (err) {
       console.error('getCountryStats error: ', err, err.stack)
       setErrorStatus(true)
