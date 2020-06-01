@@ -77,7 +77,7 @@ const App = () => {
       />
       {globalStats.cases && focusCountry === "Monde" && <GlobalStats globalStats={globalStats} />}
       {focusStats.cases && focusCountry !== "Monde" && <FocusStats focusStats={focusStats} />}
-      <NotifErrorStatus errorStatus={errorStatus} />
+      <NotifErrorStatus errorStatus={errorStatus} focusCountry={focusCountry} />
       <NotifUpdated />
       <Rankings windowIsFocused={windowIsFocused} />
       <Footer />
