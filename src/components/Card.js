@@ -8,20 +8,7 @@ import translate from '../helpers/translate'
 
 const Card = ({ dataForOneCard, title }) => {
 
-    const [buttonIsFocused, setButtonIsFocused] = useState(false)
     const [openDiv, setOpenDiv] = useState(false)
-
-    const buttonRef = useRef(null)
-
-    useEffect(() => {
-        if (buttonIsFocused) {
-            buttonRef.current.classList.add("buttonFocused")
-            setOpenDiv(true)
-        } else {
-            buttonRef.current.classList.remove("buttonFocused")
-            setOpenDiv(false)
-        }
-    }, [buttonIsFocused])
 
     const renderItemsList = dataForOneCard.map((item, index) => {
         if (translate.hasOwnProperty(item[0])) {
