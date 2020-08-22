@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState } from 'react'
 
 // Dependencies
 import Expand from 'react-expand-animated'
@@ -22,10 +22,8 @@ const Card = ({ dataForOneCard, title }) => {
     return (
         <div className="columnContainer">
             <button
-                id="buttonCases"
-                className="is-primary is-rounded"
-                ref={buttonRef}
-                onClick={() => setButtonIsFocused(prevState => !prevState)}
+                className={`is-primary is-rounded ${openDiv && 'buttonFocused'}`}
+                onClick={() => setOpenDiv(prevState => !prevState)}
             >
                 {title}
             </button>
